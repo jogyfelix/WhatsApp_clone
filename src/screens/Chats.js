@@ -1,13 +1,15 @@
 import React, {useContext, useEffect} from 'react';
-import {View, StyleSheet, FlatList} from 'react-native';
+import {View, StyleSheet, FlatList, Text} from 'react-native';
 import {ThemeContext} from 'styled-components';
 import {useDispatch, useSelector} from 'react-redux';
 import {getUserApi} from '../redux/actions';
 import ChatListItem from '../components/ChatListItem';
 import {FAB} from 'react-native-elements';
 import Icon from 'react-native-remix-icon';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {screenNames} from '../constants/screenNames';
 
-const Chats = () => {
+const Chats = ({navigation}) => {
   const theme = useContext(ThemeContext);
   const dispatch = useDispatch();
   const usersData = useSelector(state => state.userDetails);
@@ -16,17 +18,23 @@ const Chats = () => {
     dispatch(getUserApi());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   console.log('userData : ', usersData);
-  // }, [usersData]);
-
   return (
-    <View style={{backgroundColor: theme.colors.screen_bg, flex: 1}}>
+    <SafeAreaView style={{backgroundColor: theme.colors.screen_bg, flex: 1}}>
       <FlatList
         data={usersData.data}
         keyExtractor={item => item.id}
         renderItem={item => {
-          return <ChatListItem userDetails={item.item} />;
+          return (
+            <ChatListItem
+              userDetails={item.item}
+              onPress={() => {
+                const data = item.item;
+                return navigation.navigate(screenNames.DIRECT_MESSAGE_SCREEN, {
+                  data,
+                });
+              }}
+            />
+          );
         }}
         ListFooterComponent={() => <View style={styles.footer} />}
       />
@@ -41,7 +49,7 @@ const Chats = () => {
           />
         }
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

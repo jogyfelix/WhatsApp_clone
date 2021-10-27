@@ -12,6 +12,7 @@ const baseTheme = {
     secondary_text: '#889397',
     app_primary: '#04A595',
     dark_text: '#232D36',
+    faded_white: '#BBC4C9',
   },
   iconNames: {
     camera: 'ri-camera-fill',
@@ -22,6 +23,10 @@ const baseTheme = {
     phone: 'ri-phone-fill',
     arrow_down: 'ri-arrow-right-down-line',
     back: 'ri-arrow-left-line',
+    video: 'ri-vidicon-fill',
+    mic: 'ri-mic-fill',
+    smiley: 'ri-user-smile-fill',
+    clip: 'ri-attachment-2',
   },
 };
 

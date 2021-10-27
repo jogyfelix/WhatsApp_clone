@@ -3,10 +3,10 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Avatar} from 'react-native-elements';
 import {ThemeContext} from 'styled-components';
 
-const ChatListItem = ({userDetails}) => {
+const ChatListItem = ({userDetails, onPress}) => {
   const theme = useContext(ThemeContext);
   return (
-    <TouchableOpacity style={styles.parent}>
+    <TouchableOpacity style={styles.parent} onPress={onPress}>
       <View style={styles.subParent1}>
         <Avatar
           rounded
@@ -44,7 +44,7 @@ const ChatListItem = ({userDetails}) => {
 const styles = StyleSheet.create({
   parent: {
     flexDirection: 'row',
-    margin: 16,
+    margin: 12,
     justifyContent: 'space-between',
   },
   subParent1: {flexDirection: 'row', alignItems: 'center'},

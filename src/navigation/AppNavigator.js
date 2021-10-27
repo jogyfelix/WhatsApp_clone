@@ -12,6 +12,7 @@ import {
 import Icon from 'react-native-remix-icon';
 import {Menu, MenuItem} from 'react-native-material-menu';
 import SearchBar from '../components/SearchBar';
+import DirectMessage from '../screens/DirectMessage';
 
 const Stack = createStackNavigator();
 
@@ -23,7 +24,11 @@ const AppNavigator = () => {
   const hideMenu = () => setVisible(false);
   const showMenu = () => setVisible(true);
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName={screenNames.TOP_NAV}>
+      <Stack.Screen
+        name={screenNames.DIRECT_MESSAGE_SCREEN}
+        component={DirectMessage}
+      />
       <Stack.Screen
         name={screenNames.TOP_NAV}
         component={TopTabNavigator}

@@ -46,7 +46,7 @@ const CallListItem = ({firstName, lastName, picture}) => {
 const styles = StyleSheet.create({
   parent: {
     flexDirection: 'row',
-    margin: 16,
+    margin: 12,
     justifyContent: 'space-between',
   },
   subParent1: {flexDirection: 'row', alignItems: 'center'},

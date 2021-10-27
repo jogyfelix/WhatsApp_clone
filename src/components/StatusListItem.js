@@ -41,7 +41,7 @@ const StatusListItem = ({firstName, lastName, picture, tapToAdd}) => {
 const styles = StyleSheet.create({
   parent: {
     flexDirection: 'row',
-    margin: 16,
+    margin: 12,
     justifyContent: 'space-between',
   },
   subParent1: {flexDirection: 'row', alignItems: 'center'},
