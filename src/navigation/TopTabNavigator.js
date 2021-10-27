@@ -24,7 +24,7 @@ const TopTabNavigator = () => {
           backgroundColor: theme.colors.tab_active,
         },
       }}>
-      <Tab.Screen
+      {/* <Tab.Screen
         name={screenNames.CAMERA_SCREEN}
         component={Camera}
         options={{
@@ -46,7 +46,7 @@ const TopTabNavigator = () => {
           //   tabBarIconStyle: {width: 50},
           //   tabBarItemStyle: {width: 50},
         }}
-      />
+      /> */}
       <Tab.Screen
         name={screenNames.CHATS_SCREEN}
         component={Chats}

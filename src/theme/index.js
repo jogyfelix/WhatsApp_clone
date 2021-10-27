@@ -21,6 +21,7 @@ const baseTheme = {
     pencil: 'ri-pencil-fill',
     phone: 'ri-phone-fill',
     arrow_down: 'ri-arrow-right-down-line',
+    back: 'ri-arrow-left-line',
   },
 };
 
