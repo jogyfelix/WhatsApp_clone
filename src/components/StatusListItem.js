@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Avatar} from 'react-native-elements';
 import {ThemeContext} from 'styled-components';
 
-const ChatListItem = ({userDetails}) => {
+const StatusListItem = ({firstName, lastName, picture, tapToAdd}) => {
   const theme = useContext(ThemeContext);
   return (
     <TouchableOpacity style={styles.parent}>
@@ -12,30 +12,27 @@ const ChatListItem = ({userDetails}) => {
           rounded
           size="medium"
           source={{
-            uri: userDetails.picture,
-          }}
-        />
+            uri: picture,
+          }}>
+          {tapToAdd ? (
+            <Avatar.Accessory
+              size={20}
+              style={{backgroundColor: theme.colors.app_primary}}
+              i
+            />
+          ) : (
+            <View />
+          )}
+        </Avatar>
+
         <View style={styles.detailsText}>
           <Text style={{color: theme.colors.primary_text}}>
-            {userDetails.firstName} {userDetails.lastName}
+            {firstName} {lastName}
           </Text>
-          <Text style={{color: theme.colors.secondary_text}}>last message</Text>
+          <Text style={{color: theme.colors.secondary_text}}>
+            {tapToAdd || 'Yesterday, 9:11 pm'}
+          </Text>
         </View>
-      </View>
-
-      <View style={styles.subParent2}>
-        <Text style={{color: theme.colors.secondary_text}}>7:41 pm</Text>
-        <Avatar
-          rounded
-          size={20}
-          title="4"
-          titleStyle={{color: theme.colors.dark_text, fontWeight: 'bold'}}
-          activeOpacity={0.7}
-          containerStyle={{
-            backgroundColor: theme.colors.app_primary,
-            marginTop: 8,
-          }}
-        />
       </View>
     </TouchableOpacity>
   );
@@ -52,4 +49,4 @@ const styles = StyleSheet.create({
   subParent2: {alignItems: 'flex-end'},
 });
 
-export default ChatListItem;
+export default StatusListItem;

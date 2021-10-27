@@ -7,16 +7,20 @@ const baseTheme = {
     tab_inactive: '#9DA5AC',
     white: '#FAFFFF',
     screen_bg: '#18252D',
+    dark_btn_bg: '#313C42',
+    primary_text: '#D3DAE0',
+    secondary_text: '#889397',
+    app_primary: '#04A595',
+    dark_text: '#232D36',
   },
   iconNames: {
     camera: 'ri-camera-fill',
     search: 'ri-search-line',
     menu: 'ri-more-2-fill',
-
-    eye: {
-      open: 'eye-line',
-      closed: 'eye-off-line',
-    },
+    message: 'ri-message-fill',
+    pencil: 'ri-pencil-fill',
+    phone: 'ri-phone-fill',
+    arrow_down: 'ri-arrow-right-down-line',
   },
 };
 

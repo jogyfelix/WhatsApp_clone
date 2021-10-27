@@ -2,8 +2,9 @@ import React, {useContext} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Avatar} from 'react-native-elements';
 import {ThemeContext} from 'styled-components';
+import Icon from 'react-native-remix-icon';
 
-const ChatListItem = ({userDetails}) => {
+const CallListItem = ({firstName, lastName, picture}) => {
   const theme = useContext(ThemeContext);
   return (
     <TouchableOpacity style={styles.parent}>
@@ -12,29 +13,30 @@ const ChatListItem = ({userDetails}) => {
           rounded
           size="medium"
           source={{
-            uri: userDetails.picture,
-          }}
-        />
+            uri: picture,
+          }}></Avatar>
+
         <View style={styles.detailsText}>
           <Text style={{color: theme.colors.primary_text}}>
-            {userDetails.firstName} {userDetails.lastName}
+            {firstName} {lastName}
           </Text>
-          <Text style={{color: theme.colors.secondary_text}}>last message</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Icon
+              name={theme.iconNames.arrow_down}
+              size="16"
+              color={theme.colors.app_primary}
+            />
+            <Text style={{color: theme.colors.secondary_text}}>
+              Yesterday, 9:11 pm
+            </Text>
+          </View>
         </View>
       </View>
-
-      <View style={styles.subParent2}>
-        <Text style={{color: theme.colors.secondary_text}}>7:41 pm</Text>
-        <Avatar
-          rounded
-          size={20}
-          title="4"
-          titleStyle={{color: theme.colors.dark_text, fontWeight: 'bold'}}
-          activeOpacity={0.7}
-          containerStyle={{
-            backgroundColor: theme.colors.app_primary,
-            marginTop: 8,
-          }}
+      <View style={{justifyContent: 'center'}}>
+        <Icon
+          name={theme.iconNames.phone}
+          size="24"
+          color={theme.colors.app_primary}
         />
       </View>
     </TouchableOpacity>
@@ -52,4 +54,4 @@ const styles = StyleSheet.create({
   subParent2: {alignItems: 'flex-end'},
 });
 
-export default ChatListItem;
+export default CallListItem;
