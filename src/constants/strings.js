@@ -3,4 +3,13 @@ export const strings = {
   CHATS: 'Chats',
   CALLS: 'Calls',
   STATUS: 'Status',
+  YESTERDAY: ' Yesterday, 9:11 pm',
+  LAST_MSG: 'last message',
+  TIME: '7:41 pm',
+  TYPE_MSG: 'Type a message',
+  SEARCH: 'Search..',
+  WHATSAPP_WEB: 'WhatsApp Web',
+  SETTINGS: 'Settings',
+  MY: 'My',
+  STATUS_UPDATE: 'Tap to add status update',
 };

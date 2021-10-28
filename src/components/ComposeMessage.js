@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {TextInput, TouchableOpacity, View} from 'react-native';
+import {TextInput, TouchableOpacity, View, StyleSheet} from 'react-native';
 import {ThemeContext} from 'styled-components';
 import Icon from 'react-native-remix-icon';
 import {FAB} from 'react-native-elements';
@@ -8,11 +8,7 @@ const ComposeMessage = () => {
   const theme = useContext(ThemeContext);
 
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        margin: 16,
-      }}>
+    <View style={styles.parent}>
       <View
         style={{
           flexDirection: 'row',
@@ -23,8 +19,7 @@ const ComposeMessage = () => {
           marginRight: 16,
           alignItems: 'center',
         }}>
-        <View
-          style={{flexDirection: 'row', alignItems: 'center', marginLeft: 16}}>
+        <View style={styles.secondGroup}>
           <TouchableOpacity>
             <Icon
               name={theme.iconNames.smiley}
@@ -34,14 +29,14 @@ const ComposeMessage = () => {
           </TouchableOpacity>
 
           <TextInput
-            placeholder="Type a message"
+            placeholder={theme.strings.TYPE_MSG}
             placeholderTextColor={theme.colors.secondary_text}
             style={{color: theme.colors.white}}
           />
         </View>
 
-        <View style={{flexDirection: 'row', marginRight: 16}}>
-          <TouchableOpacity style={{marginRight: 8}}>
+        <View style={styles.parent}>
+          <TouchableOpacity style={styles.touch}>
             <Icon
               name={theme.iconNames.clip}
               size="24"
@@ -71,5 +66,14 @@ const ComposeMessage = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  parent: {
+    flexDirection: 'row',
+    margin: 16,
+  },
+  secondGroup: {flexDirection: 'row', alignItems: 'center', marginLeft: 16},
+  touch: {marginRight: 8},
+});
 
 export default ComposeMessage;

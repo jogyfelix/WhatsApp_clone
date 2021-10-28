@@ -20,19 +20,19 @@ const CallListItem = ({firstName, lastName, picture}) => {
           <Text style={{color: theme.colors.primary_text}}>
             {firstName} {lastName}
           </Text>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.subParent1}>
             <Icon
               name={theme.iconNames.arrow_down}
               size="16"
               color={theme.colors.app_primary}
             />
             <Text style={{color: theme.colors.secondary_text}}>
-              Yesterday, 9:11 pm
+              {theme.strings.YESTERDAY}
             </Text>
           </View>
         </View>
       </View>
-      <View style={{justifyContent: 'center'}}>
+      <View style={styles.Icon}>
         <Icon
           name={theme.iconNames.phone}
           size="24"
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
   subParent1: {flexDirection: 'row', alignItems: 'center'},
   detailsText: {marginLeft: 16},
   subParent2: {alignItems: 'flex-end'},
+  Icon: {justifyContent: 'center'},
 });
 
 export default CallListItem;

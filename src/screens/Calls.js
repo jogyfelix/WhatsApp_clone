@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Text, View, StyleSheet, FlatList} from 'react-native';
+import {View, StyleSheet, FlatList} from 'react-native';
 import {ThemeContext} from 'styled-components';
 import {FAB} from 'react-native-elements';
 import Icon from 'react-native-remix-icon';

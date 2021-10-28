@@ -23,6 +23,7 @@ const AppNavigator = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const hideMenu = () => setVisible(false);
   const showMenu = () => setVisible(true);
+
   return (
     <Stack.Navigator initialRouteName={screenNames.TOP_NAV}>
       <Stack.Screen
@@ -78,12 +79,12 @@ const AppNavigator = () => {
                   <MenuItem
                     onPress={hideMenu}
                     textStyle={{color: theme.colors.white}}>
-                    WhatsApp Web
+                    {theme.strings.WHATSAPP_WEB}
                   </MenuItem>
                   <MenuItem
                     onPress={hideMenu}
                     textStyle={{color: theme.colors.white}}>
-                    Settings
+                    {theme.strings.SETTINGS}
                   </MenuItem>
                 </Menu>
               </View>

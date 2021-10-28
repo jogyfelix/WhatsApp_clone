@@ -1,5 +1,5 @@
 import React, {useLayoutEffect, useContext} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-remix-icon';
 import {ThemeContext} from 'styled-components';
 import {Avatar} from 'react-native-elements';
@@ -13,22 +13,22 @@ const DirectMessage = ({navigation, route}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <View style={{flexDirection: 'row'}}>
-          <TouchableOpacity style={{marginHorizontal: 8}}>
+        <View style={styles.parent}>
+          <TouchableOpacity style={styles.touch}>
             <Icon
               name={theme.iconNames.video}
               size="24"
               color={theme.colors.white}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={{marginHorizontal: 8}}>
+          <TouchableOpacity style={styles.touch}>
             <Icon
               name={theme.iconNames.phone}
               size="24"
               color={theme.colors.white}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={{marginHorizontal: 8}}>
+          <TouchableOpacity style={styles.touch}>
             <Icon
               name={theme.iconNames.menu}
               size="24"
@@ -43,7 +43,7 @@ const DirectMessage = ({navigation, route}) => {
       },
       headerLeft: () => (
         <TouchableOpacity
-          style={{marginHorizontal: 8, flexDirection: 'row'}}
+          style={styles.leftTouchParent}
           onPress={() => {
             navigation.goBack();
           }}>
@@ -55,7 +55,7 @@ const DirectMessage = ({navigation, route}) => {
         </TouchableOpacity>
       ),
       headerTitle: () => (
-        <View style={{flexDirection: 'row'}}>
+        <View style={styles.parent}>
           <Avatar
             rounded
             size="small"
@@ -79,11 +79,18 @@ const DirectMessage = ({navigation, route}) => {
 
   return (
     <ImageBackground
-      style={{flex: 1, justifyContent: 'flex-end'}}
+      style={styles.imageBg}
       source={require('../assets/images/direct_message.png')}>
       <ComposeMessage />
     </ImageBackground>
   );
 };
+
+const styles = StyleSheet.create({
+  parent: {flexDirection: 'row'},
+  touch: {marginHorizontal: 8},
+  leftTouchParent: {marginHorizontal: 8, flexDirection: 'row'},
+  imageBg: {flex: 1, justifyContent: 'flex-end'},
+});
 
 export default DirectMessage;

@@ -18,6 +18,7 @@ const Status = () => {
     }
   }, [usersData]);
 
+  //getting data arranged for section list
   const sortedData = async () => {
     try {
       const result = await arrangeData(usersData);
@@ -29,11 +30,12 @@ const Status = () => {
 
   return (
     <View style={{backgroundColor: theme.colors.screen_bg, flex: 1}}>
+      {/* showing 1st item as status update */}
       <StatusListItem
-        firstName="My"
-        lastName="Status"
+        firstName={theme.strings.MY}
+        lastName={theme.strings.STATUS}
         picture={usersData.data[0].picture}
-        tapToAdd="Tap to add status update"
+        tapToAdd={theme.strings.STATUS_UPDATE}
       />
 
       <SectionList
@@ -62,15 +64,8 @@ const Status = () => {
         }}
         ListFooterComponent={() => <View style={styles.footer} />}
       />
-      <View
-        style={{
-          position: 'absolute',
-          bottom: 16,
-          right: 16,
-
-          backgroundColor: 'transparent',
-        }}>
-        <View style={{alignItems: 'center'}}>
+      <View style={styles.fabGroup}>
+        <View style={styles.fabParent}>
           <FAB
             size="small"
             color={theme.colors.dark_btn_bg}
@@ -84,7 +79,7 @@ const Status = () => {
           />
           <FAB
             color={theme.colors.app_primary}
-            style={{marginTop: 16}}
+            style={styles.fab}
             icon={
               <Icon
                 name={theme.iconNames.camera}
@@ -101,6 +96,14 @@ const Status = () => {
 
 const styles = StyleSheet.create({
   footer: {marginVertical: 60},
+  fab: {marginTop: 16},
+  fabParent: {alignItems: 'center'},
+  fabGroup: {
+    position: 'absolute',
+    bottom: 16,
+    right: 16,
+    backgroundColor: 'transparent',
+  },
 });
 
 export default Status;

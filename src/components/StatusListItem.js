@@ -30,7 +30,7 @@ const StatusListItem = ({firstName, lastName, picture, tapToAdd}) => {
             {firstName} {lastName}
           </Text>
           <Text style={{color: theme.colors.secondary_text}}>
-            {tapToAdd || 'Yesterday, 9:11 pm'}
+            {tapToAdd || theme.strings.YESTERDAY}
           </Text>
         </View>
       </View>

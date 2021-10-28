@@ -1,3 +1,4 @@
+//function for arranging section list data in status page
 export const arrangeData = usersData => {
   return new Promise((resolve, reject) => {
     try {

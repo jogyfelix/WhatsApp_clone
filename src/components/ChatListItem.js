@@ -19,12 +19,16 @@ const ChatListItem = ({userDetails, onPress}) => {
           <Text style={{color: theme.colors.primary_text}}>
             {userDetails.firstName} {userDetails.lastName}
           </Text>
-          <Text style={{color: theme.colors.secondary_text}}>last message</Text>
+          <Text style={{color: theme.colors.secondary_text}}>
+            {theme.strings.LAST_MSG}
+          </Text>
         </View>
       </View>
 
       <View style={styles.subParent2}>
-        <Text style={{color: theme.colors.secondary_text}}>7:41 pm</Text>
+        <Text style={{color: theme.colors.secondary_text}}>
+          {theme.strings.TIME}
+        </Text>
         <Avatar
           rounded
           size={20}
